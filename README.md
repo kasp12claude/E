@@ -1,5 +1,7 @@
 # ElektroStudio
 
+**Prøv nettsiden:** https://kasp12claude.github.io/ElektroStudio/
+
 En nettside for elektroelever, elektrikere og andre som vil lære elektro. Du kan tegne koblingsskjema og installasjonsplaner, planlegge prosjekter, regne ut, dokumentere og simulere enkle lavspenningskretser. Alt er på norsk bokmål.
 
 > **Sikkerhet:** ElektroStudio er et verktøy for læring og tegning. Simulatoren er en forenklet pedagogisk modell, og koblingskontrollen finner bare tekniske feil i selve tegningen. Ingenting i programmet godkjenner en elektrisk installasjon. Arbeid på virkelige anlegg skal gjøres av kvalifisert personell, etter gjeldende forskrifter og normer.
