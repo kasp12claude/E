@@ -1,6 +1,6 @@
 # ElektroStudio
 
-**Prøv nettsiden:** https://kasp12claude.github.io/ElektroStudio/
+**Prøv nettsiden:** https://kasp12claude.github.io/E/
 
 En nettside for elektroelever, elektrikere og andre som vil lære elektro. Du kan tegne koblingsskjema og installasjonsplaner, planlegge prosjekter, regne ut, dokumentere og simulere enkle lavspenningskretser. Alt er på norsk bokmål.
 
