@@ -1,0 +1,145 @@
+.calc-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calc-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.calc-card-head h2 {
+  margin: 0;
+}
+.calc-desc {
+  margin: 4px 0 10px;
+}
+
+.calc-assumptions {
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.06);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.calc-assumptions ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+.calc-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.calc-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.calc-resistor-row {
+  flex-wrap: nowrap;
+}
+.calc-rname {
+  width: 30px;
+  color: var(--muted);
+}
+
+.calc-empty {
+  border: 1px dashed var(--border-strong);
+  border-radius: 8px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.calc-result {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calc-step {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-2);
+  padding: 10px 12px;
+}
+.calc-step-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-2);
+  margin-bottom: 6px;
+}
+.calc-step dl {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 4px 10px;
+  margin: 0;
+}
+.calc-step dt {
+  color: var(--muted);
+  font-size: 12px;
+  padding-top: 1px;
+}
+.calc-step dd {
+  margin: 0;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.calc-answer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.calc-answer strong {
+  font-size: 16px;
+  color: #dbe8ff;
+}
+
+.calc-notes {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.calc-save {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.calc-saved-text {
+  white-space: pre-wrap;
+  font-size: 12.5px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  margin: 10px 0 0;
+  overflow-x: auto;
+}
+
+@media (max-width: 900px) {
+  .calc-layout {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .calc-step dl {
+    grid-template-columns: 1fr;
+  }
+}
