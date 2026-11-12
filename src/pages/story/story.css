@@ -1400,3 +1400,48 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Juksekode */
+.cheat-code .input {
+  flex: 1;
+  text-transform: uppercase;
+}
+.cheat-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cheat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cheat-grades {
+  display: flex;
+  gap: 4px;
+}
+.cheat-g {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong, #475569);
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.55;
+}
+.cheat-g.on {
+  opacity: 1;
+  color: #fff;
+  outline: 2px solid #fff;
+}
+.cheat-g.on.g1 { background: #dc2626; }
+.cheat-g.on.g2 { background: #ea580c; }
+.cheat-g.on.g3 { background: #ca8a04; }
+.cheat-g.on.g4 { background: #65a30d; }
+.cheat-g.on.g5 { background: #16a34a; }
+.cheat-g.on.g6 { background: #0d9488; }

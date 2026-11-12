@@ -34,6 +34,7 @@ import { CHARACTERS, SHOP, char } from './world';
 import { DialogueView } from './DialogueView';
 import { MissionView } from './MissionView';
 import { EffectChips } from './EffectChips';
+import { CheatButton } from './CheatMenu';
 import { Modal, Progress } from '../../components/ui';
 import { formatDateTime } from '../../utils/id';
 import './story.css';
@@ -319,6 +320,7 @@ function StoryGame({ s }: { s: StoryState }) {
             Kart
           </button>
         </div>
+        <CheatButton s={s} />
         <button className="btn btn-sm" onClick={quit}>
           <LogOut size={14} /> Til hovedmenyen
         </button>
