@@ -32,10 +32,10 @@ export const LESSONS: Record<string, Lesson> = {
     check: {
       q: 'Hvorfor sjekker man spenningsprøveren mot en kjent spenningskilde før og etter bruk?',
       options: [
-        'For å vite at den faktisk virker, så «ingen spenning» er til å stole på',
-        'For å lade batteriet i prøveren',
-        'Fordi det står i garantien',
-        'For å nullstille måleområdet',
+        'For å vite at den virker, så «ingen spenning» er til å stole på',
+        'For å lade opp batteriet i prøveren så den ikke går tom',
+        'Fordi garantien ellers bortfaller hvis den ikke kontrolleres',
+        'For å nullstille måleområdet slik at neste måling blir nøyaktig',
       ],
       explanation: 'En defekt prøver viser «ingen spenning» også der det er spenning. Kontrollen før og etter viser at den virket hele tiden.',
     },
@@ -65,10 +65,10 @@ export const LESSONS: Record<string, Lesson> = {
     check: {
       q: 'Hva er den viktigste grunnen til å slå av 12 V-forsyningen før du kobler om?',
       options: [
-        'Kortslutning kan gi gnister og brannskader, og du bygger en trygg vane til senere',
-        '12 V er livsfarlig ved berøring under alle forhold',
-        'Strømforsyningen blir slitt av å stå på',
-        'Det sparer strøm',
+        'En kortslutning kan gi gnister og brann, og du bygger en trygg vane',
+        '12 V er livsfarlig ved berøring, selv for en frisk voksen person',
+        'Strømforsyningen blir slitt av å stå på hele tiden mens du kobler om',
+        'Det sparer strøm, og dermed penger for skolen hver måned',
       ],
       explanation: 'Selv lav spenning kan gi stor kortslutningsstrøm. Og vanen med å koble spenningsløst er den som beskytter deg ved høyere spenninger.',
     },
@@ -101,10 +101,10 @@ export const LESSONS: Record<string, Lesson> = {
     check: {
       q: 'Hva viser et koblingsskjema?',
       options: [
-        'Hvordan komponentene er koblet sammen elektrisk',
-        'Nøyaktig hvordan komponentene ser ut',
-        'Hvor komponentene står i rommet',
-        'Hva komponentene koster',
+        'Hvordan komponentene er koblet til hverandre',
+        'Nøyaktig hvordan komponentene ser ut i virkeligheten',
+        'Hvor komponentene står plassert i rommet',
+        'Hva komponentene koster og hvor de kan kjøpes',
       ],
       explanation: 'Koblingsskjemaet viser forbindelsene. Hvor ting står i bygget, viser en plantegning.',
     },
@@ -204,10 +204,10 @@ export const LESSONS: Record<string, Lesson> = {
     check: {
       q: 'Hvorfor brukes en trykknapp og ikke en vanlig bryter til ringeklokka?',
       options: [
-        'Trykknappen går tilbake når du slipper, så klokka slutter å ringe',
-        'Trykknappen tåler høyere spenning',
-        'En bryter kan ikke kobles i serie',
-        'Trykknappen bruker mindre strøm',
+        'Den går tilbake når du slipper, så klokka slutter å ringe',
+        'Den tåler høyere spenning og strøm enn en vanlig bryter',
+        'En bryter kan ikke kobles i serie med en ringeklokke',
+        'Den bruker mindre strøm enn en vanlig bryter når den er i bruk',
       ],
       explanation: 'En vanlig bryter blir stående på – da ville klokka ringet til noen slo den av igjen.',
     },
@@ -266,10 +266,10 @@ export const LESSONS: Record<string, Lesson> = {
     check: {
       q: 'Hvorfor melder man nesten-ulykker, selv om ingen ble skadet?',
       options: [
-        'Slik at årsaken blir rettet før noen faktisk blir skadet',
-        'For å finne noen å straffe',
-        'Det er bare nødvendig når noen blir skadet',
-        'For at forsikringen skal betale',
+        'Slik at årsaken rettes før noen faktisk blir skadet',
+        'For å finne ut hvem som var uforsiktig og kan få en advarsel',
+        'Det er bare nødvendig når noen faktisk blir skadet',
+        'For at forsikringen skal betale ut erstatning til bedriften',
       ],
       explanation: 'Avviksmeldinger handler om å lære. En nesten-ulykke er et gratis varsel om en fare.',
     },
@@ -297,9 +297,9 @@ export const LESSONS: Record<string, Lesson> = {
       q: 'Hva er et godt tiltak mot kuttskader når du jobber med ledninger?',
       options: [
         'Bruke riktig verktøy og skjære bort fra kroppen',
-        'Jobbe raskere så eksponeringen blir kortere',
-        'Ta med plaster',
-        'Skrive faren på en lapp',
+        'Jobbe så raskt som mulig, så eksponeringen blir kortere',
+        'Ha plaster og førstehjelpsutstyr lett tilgjengelig',
+        'Skrive ned faren på en lapp og henge den opp',
       ],
       explanation: 'Riktig verktøy og riktig teknikk reduserer selve faren. Plaster hjelper først etter at skaden har skjedd.',
     },
@@ -487,7 +487,12 @@ export const LESSONS: Record<string, Lesson> = {
     ],
     check: {
       q: 'Hvor bør en lysbryter vanligvis plasseres?',
-      options: ['Ved døra, slik at du når den når du kommer inn', 'Midt i taket', 'Bak den største møbelen', 'Så langt fra døra som mulig'],
+      options: [
+        'Ved døra, så du når den idet du går inn',
+        'Midt på veggen, bak den største møbelen i rommet',
+        'Høyt oppe ved taket, midt på bakveggen i rommet',
+        'Langt fra døra, så den ikke slås på ved et uhell',
+      ],
       explanation: 'Man skal kunne slå på lyset idet man går inn i rommet.',
     },
   },
@@ -513,7 +518,12 @@ export const LESSONS: Record<string, Lesson> = {
     ],
     check: {
       q: 'Hva er den beste måten å unngå å glemme symboler på?',
-      options: ['Telle rom for rom og krysse av hvert symbol', 'Telle alt i hodet på én gang', 'Anslå ut fra størrelsen på huset', 'Telle bare de største rommene'],
+      options: [
+        'Telle rom for rom og krysse av hvert symbol',
+        'Telle alt i hodet på én gang uten å skrive noe ned',
+        'Anslå ut fra størrelsen på huset og antall rom',
+        'Telle bare de største rommene og gange opp',
+      ],
       explanation: 'Systematikk og avkryssing gir riktige tall – også på store tegninger.',
     },
   },
@@ -543,9 +553,9 @@ export const LESSONS: Record<string, Lesson> = {
       q: 'Hvilken rekkefølge er riktig før arbeid på en kurs?',
       options: [
         'Frakoble, sikre mot innkobling, kontrollere spenningsløshet',
-        'Kontrollere spenningsløshet, frakoble, sikre',
-        'Sikre, jobbe, frakoble',
-        'Frakoble, jobbe, kontrollere',
+        'Kontrollere spenningsløshet, frakoble, sikre mot innkobling',
+        'Sikre mot innkobling, starte arbeidet, frakoble til slutt',
+        'Frakoble, starte arbeidet, kontrollere spenningsløshet underveis',
       ],
       explanation: 'Først kobler du fra, så sørger du for at ingen kan slå på, og så måler du at det faktisk er spenningsløst.',
     },

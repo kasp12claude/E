@@ -199,24 +199,24 @@ export const missions3: Mission[] = [
       start: 'a',
       nodes: [
         { id: 'a', speaker: 'olsen', mood: 'glad', text: 'Å, så hyggelig at det kom en ung en! Geir er i bilen og snakker i telefonen. Kom inn, kom inn. Vil du ha kringle?', choices: [
-          { text: 'Tusen takk! Først vil jeg gjerne høre hva som har skjedd med strømmen.', next: 'b' },
-          { text: 'Nei takk, jeg har dårlig tid. Hvor er sikringsskapet?', next: 'b2' },
+          { text: 'Tusen takk! Kan du fortelle hva som har skjedd med strømmen?', next: 'b' },
+          { text: 'Nei takk, jeg vil komme i gang. Hvor står sikringsskapet?', next: 'b2' },
         ] },
         { id: 'b2', speaker: 'olsen', mood: 'bekymret', text: 'Å … ja vel. Det er i gangen.', next: 'b' },
         { id: 'b', speaker: 'olsen', text: 'Den kursen som heter «Kjøkken» går hele tiden. Kan du ikke bare skru den litt fast, eller sette inn en større sikring? Min avdøde mann gjorde alltid det.', choices: [
-          { text: 'En større sikring kan være farlig – den skal passe til kabelen. Vi finner årsaken i stedet.', next: 'c' },
-          { text: 'Klart det! Jeg setter inn en større en med en gang.', next: 'f1' },
+          { text: 'Vernet skal passe til kabelen, så det blir ikke større. Vi finner årsaken.', next: 'c' },
+          { text: 'Klart, en litt større sikring løser det nok, så slipper du at den går.', next: 'f1' },
         ] },
         { id: 'f1', speaker: 'geir', mood: 'streng', text: '(kommer inn) Stopp. Vernet skal beskytte kabelen. Et større vern kan gjøre at kabelen blir overopphetet og i verste fall begynner å brenne. Vi finner feilen – vi fjerner ikke beskyttelsen.', end: 'fail' },
         { id: 'c', speaker: 'olsen', text: 'Å ja … men kan du ikke bare åpne skapet og se, mens strømmen står på? Jeg vil ikke at fryseren skal tine.', choices: [
-          { text: 'Jeg forstår det. Vi slår av bare kjøkkenkursen, sikrer den og måler. Fryseren står nok på en annen kurs – det sjekker vi først.', next: 'd' },
-          { text: 'Ok, jeg jobber forsiktig med strømmen på.', next: 'f2' },
+          { text: 'Vi slår av bare kjøkkenkursen, låser den og måler. Fryseren sjekker vi først.', next: 'd' },
+          { text: 'Ok, jeg holder strømmen på og jobber forsiktig med isolert verktøy.', next: 'f2' },
         ] },
         { id: 'f2', speaker: 'geir', mood: 'streng', text: 'Nei. Vi jobber aldri på spenningsførende deler for å spare tid. Frakoble, sikre, kontrollere. Alltid.', end: 'fail' },
         { id: 'd', speaker: 'forteller', text: 'Du finner fryseren på en egen kurs. Du slår av kjøkkenkursen, setter på lås og skilt, og måler spenningsløshet med en spenningsprøver som du først har sjekket mot kjent spenning.', next: 'e' },
         { id: 'e', speaker: 'olsen', text: 'Så flink du er! Hva var feilen, da?', choices: [
-          { text: 'Vannkokeren og oppvaskmaskinen går på samme kurs samtidig. Jeg foreslår at Geir ser på om det bør legges en ny kurs – og så gir vi deg et tilbud.', next: 'ok' },
-          { text: 'Ingen anelse, men nå virker det kanskje.', next: 'f3' },
+          { text: 'Vannkoker og oppvaskmaskin går samtidig på samme kurs. Geir ser på en ny kurs.', next: 'ok' },
+          { text: 'Den var nok bare litt sliten. Nå som jeg har slått den på igjen, virker den.', next: 'f3' },
         ] },
         { id: 'f3', speaker: 'geir', mood: 'streng', text: 'Vi gir ikke opp før vi vet årsaken. Kunden fortjener et svar – og en trygg løsning.', end: 'fail' },
         { id: 'ok', speaker: 'olsen', mood: 'glad', text: 'Så fint forklart! Ta med deg en bit kringle til bilen. Og Kortslutning liker deg, ser jeg.', end: 'success' },
@@ -276,8 +276,8 @@ export const missions3: Mission[] = [
         { id: 'tramp', text: 'Spiker og skarpe gjenstander på gulvet', relevant: true, measure: 'Bruk vernesko og hold orden' },
         { id: 'byggestrom', text: 'Skadde skjøteledninger fra byggestrømskapet', relevant: true, measure: 'Kontroller ledninger før bruk og meld fra om skader' },
         { id: 'stoy', text: 'Støy fra sag og spikerpistol', relevant: true, measure: 'Bruk hørselvern' },
-        { id: 'snoskred', text: 'Snøskred', relevant: false },
-        { id: 'hai', text: 'Bitt av haier', relevant: false },
+        { id: 'snoskred', text: 'Forgiftning fra gass i en kloakkum', relevant: false },
+        { id: 'hai', text: 'Drukning ved arbeid fra båt på kaia', relevant: false },
       ],
       measures: [
         'Bruk godkjent stillas/stige og sikre arbeid i høyden',

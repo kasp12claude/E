@@ -268,8 +268,8 @@ export const missions2: Mission[] = [
         { id: 'fall', text: 'Fall fra stige', relevant: true, measure: 'Bruk stødig, ikke-ledende stige og ha noen som holder' },
         { id: 'fallende', text: 'Armatur eller verktøy som faller ned', relevant: true, measure: 'Sperr av området under arbeidet' },
         { id: 'glass', text: 'Kutt fra knust glass eller skarpe kanter', relevant: true, measure: 'Bruk hansker og vernebriller' },
-        { id: 'drukning', text: 'Drukning', relevant: false },
-        { id: 'trafikk', text: 'Påkjørsel av bil', relevant: false },
+        { id: 'drukning', text: 'Klemskader i maskiner med bevegelige deler', relevant: false },
+        { id: 'trafikk', text: 'Påkjørsel av truck i lagerhallen', relevant: false },
       ],
       measures: [
         'Frakoble, sikre mot innkobling og kontrollere spenningsløshet før arbeid',
