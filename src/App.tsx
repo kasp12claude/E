@@ -13,6 +13,7 @@ import SettingsPage from './pages/SettingsPage';
 import SimulatorPage from './pages/SimulatorPage';
 import CalculatorsPage from './pages/calculators/CalculatorsPage';
 import LearnPage from './pages/learn/LearnPage';
+import FagPage from './pages/fag/FagPage';
 import DocumentationPage from './pages/docs/DocumentationPage';
 import PlannerPage from './pages/planner/PlannerPage';
 
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="bibliotek" element={<LibraryPage />} />
           <Route path="beregninger" element={<CalculatorsPage />} />
           <Route path="laer" element={<LearnPage />} />
+          <Route path="fag" element={<FagPage />} />
           <Route
             path="spill"
             element={

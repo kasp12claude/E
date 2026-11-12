@@ -1,0 +1,284 @@
+.fag-subjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.fag-subject {
+  text-align: left;
+  font: inherit;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid var(--border);
+  transition: border-color 0.15s, transform 0.15s;
+}
+.fag-subject:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.fag-subject h3 {
+  margin: 0;
+}
+.fag-subject p {
+  margin: 0;
+}
+.fag-subject-icon {
+  font-size: 34px;
+}
+.fag-best-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.fag-best {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+}
+
+.fag-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.fag-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-dim, var(--text));
+  font: inherit;
+  cursor: pointer;
+}
+.fag-tabs button.on {
+  background: var(--accent);
+  color: #fff;
+}
+
+.fag-lessons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.fag-lesson-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 12px;
+  text-align: left;
+  font: inherit;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.fag-lesson-card:hover {
+  border-color: var(--accent);
+}
+.fag-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--ok);
+}
+.fag-lesson {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.fag-lesson .lesson {
+  width: 100%;
+}
+
+.fag-levels {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+.fag-level {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  text-align: left;
+  font: inherit;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left-width: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.fag-level:hover {
+  background: var(--panel-2);
+}
+.fag-level.lv-lett {
+  border-left-color: #22c55e;
+}
+.fag-level.lv-middels {
+  border-left-color: #eab308;
+}
+.fag-level.lv-vanskelig {
+  border-left-color: #f97316;
+}
+.fag-level.lv-super {
+  border-left-color: #ef4444;
+}
+.fag-level-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+.fag-level-icon {
+  font-size: 18px;
+}
+
+.fag-grade {
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  background: #64748b;
+  flex-shrink: 0;
+}
+.fag-grade.small {
+  width: 28px;
+  height: 28px;
+  font-size: 15px;
+  border-radius: 7px;
+}
+.fag-grade.g1 {
+  background: #dc2626;
+}
+.fag-grade.g2 {
+  background: #ea580c;
+}
+.fag-grade.g3 {
+  background: #ca8a04;
+}
+.fag-grade.g4 {
+  background: #65a30d;
+}
+.fag-grade.g5 {
+  background: #16a34a;
+}
+.fag-grade.g6 {
+  background: #0d9488;
+}
+
+.fag-quiz-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.fag-bar,
+.fag-timebar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  overflow: hidden;
+}
+.fag-bar > div {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.fag-timebar {
+  height: 4px;
+  margin-top: -8px;
+}
+.fag-timebar > div {
+  height: 100%;
+  background: #f97316;
+  transition: width 1s linear;
+}
+.fag-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--panel-2);
+}
+.fag-timer.low {
+  color: #fff;
+  background: #dc2626;
+}
+.fag-lives {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--border-strong, #475569);
+}
+.fag-lives .on {
+  color: #ef4444;
+  fill: #ef4444;
+}
+
+.fag-result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.fag-result-top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.fag-result-top h2 {
+  margin: 2px 0 4px;
+}
+.fag-review {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fag-review h3 {
+  margin: 0;
+}
+.fag-review-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+}
+.fag-right {
+  color: var(--ok);
+  font-weight: 600;
+}
+.fag-wrong {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .fag-page .learn-options {
+    grid-template-columns: 1fr;
+  }
+}

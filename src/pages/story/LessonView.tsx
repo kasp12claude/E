@@ -27,7 +27,7 @@ function SlideBody({ slide }: { slide: Lesson['slides'][number] }) {
 }
 
 /** Undervisning: læreren går gjennom stoffet lysbilde for lysbilde før oppgaven */
-export function LessonView({ lesson, onDone }: { lesson: Lesson; onDone: () => void }) {
+export function LessonView({ lesson, onDone, doneLabel = "Jeg er klar – start oppgaven" }: { lesson: Lesson; onDone: () => void; doneLabel?: string }) {
   const t = char(lesson.teacher);
   const [i, setI] = useState(0);
   const [answer, setAnswer] = useState<string | null>(null);
@@ -92,7 +92,7 @@ export function LessonView({ lesson, onDone }: { lesson: Lesson; onDone: () => v
         <span className="spacer" />
         {last ? (
           <button className="btn btn-primary" disabled={!!onCheck && answer === null} onClick={onDone}>
-            Jeg er klar – start oppgaven <ArrowRight size={15} />
+            {doneLabel} <ArrowRight size={15} />
           </button>
         ) : (
           <button className="btn btn-primary" onClick={() => setI(i + 1)} autoFocus>

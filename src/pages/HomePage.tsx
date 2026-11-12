@@ -20,6 +20,7 @@ const DESCRIPTIONS: Record<string, string> = {
   Komponentbibliotek: 'Symboler med beskrivelse, tekniske egenskaper og kilde.',
   Beregninger: 'Ohms lov, effekt, serie/parallell, energi, AC og trefase – trinn for trinn.',
   'Lær elektro': 'Symboltrening, feilsøking, HMS-spørsmål og motorstyringsteori.',
+  'Fag og quiz': 'YFF, Elektriske kretser og Styresystemer: les timene og ta quiz på lett, middels, vanskelig eller supervanskelig.',
   'Story Mode': 'Elektrokarrieren min: fra Vg1-elev til fagarbeider i spillet – med lærere, oppdrag, valg og egen lønn.',
   Elektrikerspillet: 'Gå rundt i 3D som elektriker, koble opp lys i kundenes hus – og jobb trygt.',
   Innstillinger: 'Navn, skole, rutenett, lagring og sikkerhetskopi.',
