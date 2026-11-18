@@ -52,6 +52,8 @@ export interface CanvasProps {
   /** Teller som økes for å avbryte pågående tegning (Esc) */
   cancelSignal: number;
   finishSignal: number;
+  /** Editor kan avslutte en påbegynt strek/ledning (f.eks. før siden forlates) */
+  finishRef?: { current: (() => void) | null };
 }
 
 type DraftKind = WireKind | 'wall';
@@ -83,6 +85,8 @@ export function Canvas(p: CanvasProps) {
   const [size, setSize] = useState({ w: 800, h: 600 });
   const [cursor, setCursor] = useState<Pt | null>(null);
   const [draft, setDraft] = useState<Draft | null>(null);
+  const draftRef = useRef<Draft | null>(null);
+  draftRef.current = draft;
   const [marquee, setMarquee] = useState<{ a: Pt; b: Pt } | null>(null);
   const [rectDraft, setRectDraft] = useState<{ a: Pt; b: Pt } | null>(null);
   const [dimA, setDimA] = useState<Pt | null>(null);
@@ -124,11 +128,25 @@ export function Canvas(p: CanvasProps) {
     if (p.finishSignal) finishDraft(draft, undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [p.finishSignal]);
+  // Bytter man verktøy midt i en strek/ledning, blir den lagret i stedet for å forsvinne
   useEffect(() => {
     if (p.tool !== 'dimension') setDimA(null);
-    if (draft && !['wire', 'line', 'cable', 'wall', 'select'].includes(p.tool)) setDraft(null);
+    const d = draftRef.current;
+    if (d && p.tool !== d.kind && !(p.tool === 'select' && d.returnToSelect)) finishDraft(d);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [p.tool]);
+  // Det samme når man velger et symbol fra biblioteket
+  useEffect(() => {
+    if (p.placing && draftRef.current) finishDraft(draftRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [p.placing]);
+  useEffect(() => {
+    if (!p.finishRef) return;
+    p.finishRef.current = () => finishDraft(draftRef.current);
+    return () => {
+      if (p.finishRef) p.finishRef.current = null;
+    };
+  });
 
   // Zoom med musehjul (ikke-passiv lytter for å kunne hindre siderulling)
   useEffect(() => {
@@ -187,6 +205,7 @@ export function Canvas(p: CanvasProps) {
   // ------------------------------------------------------------------
   function finishDraft(d: Draft | null, end?: { pt: Pt; ref?: TermRef }) {
     if (!d) return;
+    draftRef.current = null;
     let pts = [...d.points];
     if (end) {
       const last = pts[pts.length - 1];
@@ -566,7 +585,8 @@ export function Canvas(p: CanvasProps) {
   const cursorSnap = cursor ? snapP(cursor) : null;
   const hoverTerm = cursor && (p.tool === 'wire' || p.tool === 'cable' || draft) && !simActive ? nearTerminal(cursor) : null;
 
-  let draftPreview: Pt[] | null = null;
+  // Punktene som er satt vises alltid – også uten mus over tegnearket (nettbrett/mobil)
+  let draftPreview: Pt[] | null = draft && draft.points.length > 1 ? draft.points : null;
   if (draft && cursorSnap) {
     const last = draft.points[draft.points.length - 1];
     const target = hoverTerm ? { x: hoverTerm.x, y: hoverTerm.y } : cursorSnap;
@@ -584,7 +604,30 @@ export function Canvas(p: CanvasProps) {
         ? 'crosshair'
         : 'default';
 
+  const draftName = draft ? (draft.kind === 'wire' ? 'ledningen' : draft.kind === 'cable' ? 'kabelruten' : draft.kind === 'wall' ? 'veggen' : 'streken') : '';
   return (
+    <>
+    {draft && (
+      <div className="draft-bar" onPointerDown={(e) => e.stopPropagation()}>
+        <span className="small">
+          Tegner {draftName} · {draft.points.length} punkt{draft.points.length === 1 ? '' : 'er'}
+        </span>
+        <button className="btn btn-sm btn-primary" disabled={draft.points.length < 2} onClick={() => finishDraft(draft)} title="Lagre (Enter eller dobbeltklikk)">
+          ✓ Ferdig
+        </button>
+        <button
+          className="btn btn-sm"
+          disabled={draft.points.length < 2}
+          onClick={() => setDraft({ ...draft, points: draft.points.slice(0, -1) })}
+          title="Fjern siste punkt"
+        >
+          ↶ Siste punkt
+        </button>
+        <button className="btn btn-sm btn-ghost" onClick={() => setDraft(null)} title="Avbryt (Esc)">
+          ✕ Avbryt
+        </button>
+      </div>
+    )}
     <svg
       ref={svgRef}
       className="canvas-svg"
@@ -594,6 +637,7 @@ export function Canvas(p: CanvasProps) {
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
       onPointerLeave={() => {
         setCursor(null);
         p.onCursor(null);
@@ -696,6 +740,9 @@ export function Canvas(p: CanvasProps) {
               strokeDasharray={draft!.kind === 'cable' ? '8 6' : undefined}
             />
           )}
+          {draft?.points.map((q, i) => (
+            <circle key={i} cx={q.x} cy={q.y} r={4 * hs} fill={ACCENT} stroke="#fff" strokeWidth={hs} />
+          ))}
           {dimA && cursorSnap && <line x1={dimA.x} y1={dimA.y} x2={cursorSnap.x} y2={cursorSnap.y} stroke={ACCENT} strokeWidth={1.5 * hs} strokeDasharray={`${4 * hs}`} />}
           {rectDraft && (
             <rect
@@ -731,6 +778,7 @@ export function Canvas(p: CanvasProps) {
         </g>
       </g>
     </svg>
+    </>
   );
 }
 

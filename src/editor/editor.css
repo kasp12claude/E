@@ -374,3 +374,23 @@
     width: 120px;
   }
 }
+
+/* Linje mens man tegner en strek/ledning: lagre, angre punkt eller avbryt */
+.draft-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: calc(100% - 24px);
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(17, 26, 46, 0.95);
+  border: 1px solid var(--border-strong, #475569);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}

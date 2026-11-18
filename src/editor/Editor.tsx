@@ -97,14 +97,40 @@ export function Editor({ doc: initialDoc, projectName, onCommit, sim, toolbarExt
 
   // Lagre når et dokument er endret (ikke under dra-operasjoner)
   const first = useRef(true);
+  const committed = useRef(initialDoc);
   useEffect(() => {
     if (first.current) {
       first.current = false;
       return;
     }
-    if (!h.previewing) onCommit(doc);
+    if (!h.previewing) {
+      committed.current = doc;
+      onCommit(doc);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doc, h.previewing]);
+
+  // Påbegynt strek/ledning lagres når man forlater tegningen eller lukker siden
+  const finishRef = useRef<(() => void) | null>(null);
+  const commitRef = useRef(onCommit);
+  commitRef.current = onCommit;
+  useEffect(() => {
+    const save = () => {
+      finishRef.current?.();
+      const cur = h.presentRef.current;
+      if (cur !== committed.current) {
+        committed.current = cur;
+        commitRef.current(cur);
+      }
+      void flush();
+    };
+    window.addEventListener('pagehide', save);
+    return () => {
+      window.removeEventListener('pagehide', save);
+      save();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Fjern valgte id-er som ikke finnes lenger (etter angre o.l.)
   useEffect(() => {
@@ -441,6 +467,7 @@ export function Editor({ doc: initialDoc, projectName, onCommit, sim, toolbarExt
             spaceDown={spaceDown}
             cancelSignal={cancelSignal}
             finishSignal={finishSignal}
+            finishRef={finishRef}
           />
           <div className="canvas-badge">
             {DOC_KIND_LABEL[doc.kind]}
